@@ -1,4 +1,5 @@
 using System.Threading;
+using ZXing;
 namespace FoodScanner;
 
 public partial class Scanner : ContentPage
@@ -6,6 +7,16 @@ public partial class Scanner : ContentPage
     public Scanner()
     {
         InitializeComponent();
+
+        cameraView.BarCodeOptions = new Camera.MAUI.ZXingHelper.BarcodeDecodeOptions()
+        {
+            AutoRotate = true,
+            PossibleFormats = { BarcodeFormat.EAN_13, BarcodeFormat.EAN_8},
+            ReadMultipleCodes = false,
+            TryHarder = true,
+            TryInverted = true
+        };
+
         cameraView.StartCameraAsync();
     }
 
@@ -30,7 +41,7 @@ public partial class Scanner : ContentPage
 
 
             string barcode = args.Result[0].Text;
-
+            
             var scannedProduct = Product.NewProduct(barcode);
 
             if (scannedProduct == null)
@@ -48,6 +59,7 @@ public partial class Scanner : ContentPage
                 Globals.ActiveProduct = scannedProduct;
                 await Navigation.PushAsync(new ProductPage());
             }
+            
 
 
         });

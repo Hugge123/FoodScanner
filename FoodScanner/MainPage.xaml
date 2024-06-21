@@ -7,7 +7,11 @@
         <VerticalStackLayout>
 
 
-            <Button Text="Scan Products" Clicked="Button_Clicked"/>
+            <Border Margin="0, 20, 0, 0" StrokeShape="RoundRectangle 10,10,10,10 " WidthRequest="100" HorizontalOptions="Center">
+                <ImageButton Source="/Resources/Images/scan_icon.svg" Clicked="Button_Clicked"
+       HorizontalOptions="Center" WidthRequest="100"  HeightRequest="100" BackgroundColor="White"/>
+            </Border>
+
 
         </VerticalStackLayout>
     </ScrollView>

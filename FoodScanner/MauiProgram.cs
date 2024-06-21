@@ -1,4 +1,5 @@
 ﻿using Camera.MAUI;
+using Microcharts.Maui;
 using Microsoft.Extensions.Logging;
 
 namespace FoodScanner
@@ -11,6 +12,7 @@ namespace FoodScanner
             builder
                 .UseMauiApp<App>()
                 .UseMauiCameraView()
+                .UseMicrocharts()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");

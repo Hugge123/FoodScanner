@@ -8,6 +8,7 @@
 
         <cv:CameraView WidthRequest="460" HeightRequest="350" x:Name="cameraView" CamerasLoaded="CameraView_CamerasLoaded"  BarCodeDetectionEnabled="True"
     BarcodeDetected="CameraView_BarcodeDetected"/>
+ 
 
 
     </VerticalStackLayout>

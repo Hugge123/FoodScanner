@@ -1,21 +1,35 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+              xmlns:micro="clr-namespace:Microcharts.Maui;assembly=Microcharts.Maui"
              x:Class="FoodScanner.ProductPage"
-             Title="ProductPage">
+             Title="Results">
 
     <ScrollView>
         <VerticalStackLayout>
-            <Label x:Name="productBrand" FontSize="22" Text="Brnad"/>
-            <Label x:Name="productName" FontSize="22" Text="Name"/>
 
-            <Image x:Name="nutriScoreImg" WidthRequest="100" HeightRequest="100"  />
+            <VerticalStackLayout>
+                <Label x:Name="productBrand" FontSize="22" HorizontalTextAlignment="Center" Text="Brand"/>
+                <Label x:Name="productName" FontSize="22" HorizontalTextAlignment="Center" Text="Name"/>
+
+                <Image x:Name="productImageSource" Margin="0, 20, 0, 0" HorizontalOptions="Center" WidthRequest="200" HeightRequest="200" />
+            </VerticalStackLayout>
+
+
+
+
+            <VerticalStackLayout Margin="0, 50, 0, 0">
+                <Label HorizontalOptions="Center" Text="Produkt Sammansättning" FontSize="26" />
+                <micro:ChartView x:Name="chartView" WidthRequest="300" HeightRequest="300" HorizontalOptions="Center" />
+
+            </VerticalStackLayout>
+
+            <Image x:Name="nutriScoreImg" WidthRequest="120" HeightRequest="120"  />
 
             <Label x:Name="productIngredients" FontSize="22" Text="Ingredients"/>
 
 
-         
+
 
 
         </VerticalStackLayout>

@@ -1,3 +1,6 @@
+using Microcharts;
+using SkiaSharp;
+
 namespace FoodScanner;
 
 public partial class ProductPage : ContentPage
@@ -10,6 +13,15 @@ public partial class ProductPage : ContentPage
         productName.Text = Globals.ActiveProduct.Name;
         productIngredients.Text = Globals.ActiveProduct.Ingredients;
         productBrand.Text = Globals.ActiveProduct.Brand;
+        productImageSource.Source = ImageSource.FromUri(new Uri(Globals.ActiveProduct.ImageSource));
+
+        chartView.Chart = new DonutChart()
+        {
+            BackgroundColor = SKColors.Black,
+            LabelMode = LabelMode.RightOnly,
+            LabelTextSize = 40f,
+            Entries = Globals.ActiveProduct.ChartData
+        };
 
 
         nutriScoreImg.IsVisible = true;
